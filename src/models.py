@@ -1,8 +1,9 @@
 class Vertex:
-    def __init__(self, key, color='#000000'):
+    def __init__(self, key, colorId=0):
         self.id = key
-        self.color = color
+        self.colorId = colorId
         self.connectedTo = {} # {Vertex-id : Vertex}
+        self.__color = '#000000'
 
 
     def addNeighbor(self, vertex):
@@ -21,10 +22,10 @@ class Vertex:
         return [x for x in self.connectedTo.values()]
     
     def getColor(self):
-        return self.color
+        return self.colorId
     
-    def setColor(self, color):
-        self.color = color
+    def setColor(self, colorId):
+        self.colorId = colorId
 
 
 class Graph:

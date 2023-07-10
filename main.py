@@ -4,7 +4,7 @@ from src.generator import *
 from src.algo.greedy import *
 from src.algo.sort_greedy_strategy import *
 
-g = generate_graph(10)
+g = generate_graph(15)
 
 # color_number = greedy(g, lambda t: t.getVertices()) # default strategy
 color_number = greedy(g, strategy=sortStrategy)
