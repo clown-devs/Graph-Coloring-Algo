@@ -17,11 +17,14 @@ class Vertex:
     def getId(self):
         return self.id
     
-    def getAdjecentVertices(self):
-        return self.connectedTo
+    def getAdjecentVertices(self) -> list:
+        return [x for x in self.connectedTo.values()]
     
     def getColor(self):
         return self.color
+    
+    def setColor(self, color):
+        self.color = color
 
 
 class Graph:
@@ -45,5 +48,5 @@ class Graph:
         else:
             return None
 
-    def getVertices(self):
+    def getVertices(self) -> list:
         return [x for x in self.vertList.values()]
