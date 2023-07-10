@@ -4,8 +4,8 @@ from random import *
 
 # returns the number of colors used
 #TODO: Colors generator
-def greedy(g: Graph) -> int:
-    vertices = g.getVertices()
+def greedy(g: Graph, strategy: callable) -> int:
+    vertices = strategy(g)
     if len(vertices) == 0:
         return 0
     
