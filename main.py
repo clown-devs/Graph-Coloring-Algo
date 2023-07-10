@@ -9,9 +9,3 @@ color_number = greedy(g)
 print("Color number for this graph:", color_number)
 d = Drawer(g)
 d.draw('graph.html')
-
-
-
-
-
-
