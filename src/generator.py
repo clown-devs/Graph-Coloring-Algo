@@ -7,7 +7,7 @@ def generate_graph(n):
     for i in range(1, n):
         g.addEdge(g.getVertex(i), g.getVertex(i + 1))
 
-    for i in range(1, random.randint(1,n/3)):
+    for i in range(1, random.randint(1,n//3)):
         a = b = 1
         while(a == b): # To remove self loops
             a = random.randint(1,n)

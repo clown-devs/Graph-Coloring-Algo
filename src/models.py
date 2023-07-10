@@ -46,4 +46,4 @@ class Graph:
             return None
 
     def getVertices(self):
-        return self.vertList.keys()
+        return [x for x in self.vertList.values()]
