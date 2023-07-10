@@ -1,5 +1,5 @@
 from pyvis.network import Network
-from ..models.graph import *
+from .models import *
 
 class Drawer():
     def __init__(self, Graph):
