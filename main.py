@@ -1,13 +1,18 @@
-from pyvis.network import Network
+from src.models.graph import *
+from src.view.drawer import *
 
-net = Network(notebook=True)
+g = Graph()
+g.addVertex(Vertex(1, '#FF0000'))
+g.addVertex(Vertex(2, '#00FF00'))
+g.addVertex(Vertex(3, '#0000FF'))
+g.addEdge(g.getVertex(1), g.getVertex(2))
+g.addEdge(g.getVertex(2), g.getVertex(3))
 
-net.add_node(1, color='#000090')
+d = Drawer(g)
+d.draw('graph.html')
 
-net.add_node(2, color='#200') # node id and label = 2
 
-net.add_edge(1,2,weight=0.87)
 
-net.toggle_physics(True)
-net.show('graph.html')
+
+
 

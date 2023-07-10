@@ -1,3 +1,4 @@
 venv
 lib
-graph.html
+*.html
+__pycache__

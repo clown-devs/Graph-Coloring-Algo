@@ -1,9 +1,9 @@
-
-
 class Vertex:
-    def __init__(self, key):
+    def __init__(self, key, color='#000000'):
         self.id = key
+        self.color = color
         self.connectedTo = {} # {Vertex-id : Vertex}
+
 
     def addNeighbor(self, vertex):
         self.connectedTo[vertex.id] = vertex
@@ -16,6 +16,12 @@ class Vertex:
     
     def getId(self):
         return self.id
+    
+    def getAdjecentVertices(self):
+        return self.connectedTo
+    
+    def getColor(self):
+        return self.color
 
 
 class Graph:
