@@ -3,7 +3,6 @@ class Vertex:
         self.id = key
         self.colorId = colorId
         self.connectedTo = {} # {Vertex-id : Vertex}
-        self.__color = '#000000'
 
 
     def addNeighbor(self, vertex):
@@ -48,6 +47,10 @@ class Graph:
             return self.vertList[key]
         else:
             return None
+
+    def resetColors(self):
+        for vertex in self.vertList.values():
+            vertex.setColor(0)
 
     def getVertices(self) -> list:
         return [x for x in self.vertList.values()]

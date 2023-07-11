@@ -1,14 +1,17 @@
-from src.models import *
 from src.drawer import *
 from src.generator import *
 from src.algo.greedy import *
-from src.algo.sort_greedy_strategy import *
 
-g = generate_graph(15)
+g = generate_graph(100)
 
-# color_number = greedy(g, lambda t: t.getVertices()) # default strategy
-color_number = greedy(g, strategy=sortStrategy)
+color_number_greedy = greedy_coloring(g) 
+g.resetColors()
+color_number_sorting_greedy = sorting_greedy_coloring(g)
 
-print("Color number for this graph:", color_number)
+print("-------------------")
+print("Color numbers for this graph:")
+print(" Greedy:", color_number_greedy)
+print(" Greedy (sorting heuristic):", color_number_sorting_greedy)
+print("-------------------")
 d = Drawer(g)
 d.draw('graph.html')

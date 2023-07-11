@@ -2,10 +2,19 @@ from ..models import *
 from random import *
 
 
+def greedy_coloring(g: Graph) -> int:
+    return __greedy(g.getVertices())
+
+
+def sorting_greedy_coloring(g : Graph) -> int:
+    vertices = g.getVertices()
+    vertices.sort(key=lambda v: len(v.getAdjecentVertices()), reverse=True)
+    return __greedy(vertices)
+
+
 # returns the number of colors used
 #TODO: Colors generator
-def greedy(g: Graph, strategy: callable) -> int:
-    vertices = strategy(g)
+def __greedy(vertices: list[Vertex]) -> int:
     if len(vertices) == 0:
         return 0
     
@@ -27,5 +36,3 @@ def greedy(g: Graph, strategy: callable) -> int:
         if not temp_flag:
             raise Exception("Not enough colors FIXME")
     return max_color + 1
-        
-        
