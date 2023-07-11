@@ -10,6 +10,10 @@ def main():
     args = argParser.parse_args()
 
     n = args.v
+    
+    if n is None:
+        n = 10
+    
     g = generate_graph(n)
 
     color_number_greedy = greedy_coloring(g) 
