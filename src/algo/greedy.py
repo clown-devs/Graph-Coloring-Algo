@@ -13,7 +13,6 @@ def sorting_greedy_coloring(g : Graph) -> int:
 
 
 # returns the number of colors used
-#TODO: Colors generator
 def __greedy(vertices: list[Vertex]) -> int:
     if len(vertices) == 0:
         return 0
