@@ -6,7 +6,7 @@ from src.algo.greedy import *
 
 def main():
     argParser = argparse.ArgumentParser()
-    argParser.add_argument("-v", help="vertexies count", type=int)
+    argParser.add_argument("-v", help="vertices count", type=int)
     args = argParser.parse_args()
 
     n = args.v
