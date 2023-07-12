@@ -25,7 +25,7 @@ class Vertex:
     def getAdjecentVertices(self) -> list:
         return [x for x in self.connectedTo.values()]
     
-    def getColor(self):
+    def getColorId(self):
         return self.colorId
     
     def setColor(self, colorId):

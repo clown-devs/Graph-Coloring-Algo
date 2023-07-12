@@ -51,11 +51,11 @@ class VertexTests(unittest.TestCase):
         self.assertEqual(self.vertex.getAdjecentVertices(), vertex_list)
 
     def test_get_color(self):
-        self.assertEqual(self.vertex.getColor(), None)
+        self.assertEqual(self.vertex.getColorId(), None)
 
     def test_set_color(self):
         self.vertex.setColor(1)
-        self.assertEqual(self.vertex.getColor(), 1)
+        self.assertEqual(self.vertex.getColorId(), 1)
     
         
 
