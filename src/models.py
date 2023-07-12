@@ -1,5 +1,5 @@
 class Vertex:
-    def __init__(self, key, colorId=0):
+    def __init__(self, key, colorId=None):
         self.id = key
         self.colorId = colorId
         self.connectedTo = {} # {Vertex-id : Vertex}
@@ -52,7 +52,7 @@ class Graph:
 
     def resetColors(self):
         for vertex in self.vertList.values():
-            vertex.setColor(0)
+            vertex.setColor(None)
 
     def getVertices(self) -> list:
         return [x for x in self.vertList.values()]

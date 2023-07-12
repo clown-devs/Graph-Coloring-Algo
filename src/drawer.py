@@ -12,7 +12,8 @@ class Drawer():
 
         for vertex in Graph.getVertices():
             self.net.add_node(vertex.id, color=colors[vertex.getColor()])
-            for adjecentVertex in vertex.connectedTo.values():
+
+            for adjecentVertex in vertex.getAdjecentVertices():
                 self.net.add_node(adjecentVertex.id, color=colors[adjecentVertex.colorId])
                 self.net.add_edge(vertex.id, adjecentVertex.id, weight=1)
     
