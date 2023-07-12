@@ -1,6 +1,6 @@
 from pyvis.network import Network
 from .models import *
-from .colors import *
+from .color_generator import *
 class Drawer():
     def __init__(self, Graph):
         self.net = Network(notebook=True)
