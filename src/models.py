@@ -33,7 +33,6 @@ class Vertex:
 class Graph:
     def __init__(self):
         self.vertList = {} # {Vertex-id : Vertex}
-        self.__edgges = 0  
 
     def addVertex(self, vertex):
         self.vertList[vertex.id] = vertex
@@ -42,7 +41,6 @@ class Graph:
         if vertex1_id in self.vertList and vertex2_id in self.vertList:
             self.vertList[vertex1_id].addNeighbor(self.vertList[vertex2_id])
             self.vertList[vertex2_id].addNeighbor(self.vertList[vertex1_id])
-            self.__edgges += 2
         
     def getVertex(self, key):
         if key in self.vertList:
@@ -64,10 +62,9 @@ class Graph:
             del self.vertList[vertex_id]
 
     def removeEdge(self, vertex1, vertex2):
-        if vertex1 in self.vertList and vertex2 in self.vertList:
+        if vertex1.id in self.vertList and vertex2.id in self.vertList:
             self.vertList[vertex1.id].removeNeighbor(vertex2.id)
             self.vertList[vertex2.id].removeNeighbor(vertex1.id)
-            self.__edgges -= 2
 
     def isAdjecent(self, vertex1_id, vertex2_id):
         if vertex1_id in self.vertList and vertex2_id in self.vertList:
@@ -76,4 +73,10 @@ class Graph:
             return False
         
     def empty(self):
-        return self.__edgges == 0
+        count = 0
+        for v in self.getVertices():
+            count += len(v.getAdjecentVertices())
+        return count == 0
+
+    def __len__(self):
+        return len(self.vertList)
