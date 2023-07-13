@@ -146,6 +146,24 @@ class GraphTests(unittest.TestCase):
         self.assertNotIn(vertex2, vertex1.getAdjecentVertices())
         self.assertNotIn(vertex1, vertex2.getAdjecentVertices())
 
+    def test_remove_vertices_with_edge(self):
+        vertex1 = Vertex(1)
+        vertex2 = Vertex(2)
+        vertex3 = Vertex(3)
+
+        self.graph.addVertex(vertex1)
+        self.graph.addVertex(vertex2)
+        self.graph.addVertex(vertex3)
+
+        self.graph.addEdge(vertex1.getId(), vertex2.getId())
+        self.graph.addEdge(vertex2.getId(), vertex3.getId())   
+
+        self.graph.removeVertex(vertex1.getId())
+        
+        self.assertNotIn(vertex1, vertex2.getAdjecentVertices())
+        self.assertNotIn(vertex1, vertex3.getAdjecentVertices())
+        self.assertIn(vertex3, vertex2.getAdjecentVertices())   
+
 
 
 if __name__ == '__main__':

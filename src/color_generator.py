@@ -20,6 +20,8 @@ class ColorGenerator:
                 return color
             
     def get_color(self, color_id):
+        if color_id == None:
+            return '#000000'
         while color_id >= len(self.colors):
             self.generate_color()
         return self.colors[color_id]
