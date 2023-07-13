@@ -4,10 +4,8 @@ class Vertex:
         self.colorId = colorId
         self.connectedTo = {} # {Vertex-id : Vertex}
 
-
     def addNeighbor(self, vertex):
         self.connectedTo[vertex.id] = vertex
-
 
     def removeNeighbor(self, vertex_id):
         if vertex_id in self.connectedTo:
@@ -34,7 +32,8 @@ class Vertex:
 
 class Graph:
     def __init__(self):
-        self.vertList = {} # {Vertex-id : Vertex}  
+        self.vertList = {} # {Vertex-id : Vertex}
+        self.__edgges = 0  
 
     def addVertex(self, vertex):
         self.vertList[vertex.id] = vertex
@@ -43,6 +42,7 @@ class Graph:
         if vertex1_id in self.vertList and vertex2_id in self.vertList:
             self.vertList[vertex1_id].addNeighbor(self.vertList[vertex2_id])
             self.vertList[vertex2_id].addNeighbor(self.vertList[vertex1_id])
+            self.__edgges += 2
         
     def getVertex(self, key):
         if key in self.vertList:
@@ -58,16 +58,20 @@ class Graph:
         return [x for x in self.vertList.values()]
     
     def removeVertex(self, vertex_id):
-        if vertex_id in self.vertList:
+        if vertex_id in self.vertList.keys():
             del self.vertList[vertex_id]
 
     def removeEdge(self, vertex1, vertex2):
         if vertex1 in self.vertList and vertex2 in self.vertList:
             self.vertList[vertex1.id].removeNeighbor(vertex2.id)
             self.vertList[vertex2.id].removeNeighbor(vertex1.id)
+            self.__edgges -= 2
 
     def isAdjecent(self, vertex1_id, vertex2_id):
         if vertex1_id in self.vertList and vertex2_id in self.vertList:
             return self.vertList[vertex1_id].isConnectedTo(vertex2_id)
         else:
             return False
+        
+    def empty(self):
+        return self.__edgges == 0

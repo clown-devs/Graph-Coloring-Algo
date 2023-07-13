@@ -3,6 +3,7 @@ import argparse
 from src.drawer import *
 from src.generator import *
 from src.algo.greedy import *
+from src.algo.contraction import *
 
 def main():
     argParser = argparse.ArgumentParser()
@@ -19,11 +20,13 @@ def main():
     color_number_greedy = greedy_coloring(g) 
     g.resetColors()
     color_number_sorting_greedy = sorting_greedy_coloring(g)
+    color_number_contraction = contraction(g, n)
 
     print("-------------------")
     print("Color numbers for this graph:")
     print(" Greedy:", color_number_greedy)
     print(" Greedy (sorting heuristic):", color_number_sorting_greedy)
+    print(" Contraction: ", color_number_contraction)
     print("-------------------")
     d = Drawer(g)
     d.draw('graph.html')
