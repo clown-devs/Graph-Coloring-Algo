@@ -54,11 +54,13 @@ class Graph:
         for vertex in self.vertList.values():
             vertex.setColor(None)
 
-    def getVertices(self) -> list:
+    def getVertices(self) -> list[Vertex]:
         return [x for x in self.vertList.values()]
     
     def removeVertex(self, vertex_id):
         if vertex_id in self.vertList:
+            for vertex in self.vertList[vertex_id].getAdjecentVertices():
+                vertex.removeNeighbor(vertex_id)
             del self.vertList[vertex_id]
 
     def removeEdge(self, vertex1, vertex2):
@@ -71,3 +73,6 @@ class Graph:
             return self.vertList[vertex1_id].isConnectedTo(vertex2_id)
         else:
             return False
+    
+    def __len__(self):
+        return len(self.vertList)

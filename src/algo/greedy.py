@@ -1,5 +1,4 @@
 from ..models import *
-from random import *
 
 
 def greedy_coloring(g: Graph) -> int:
