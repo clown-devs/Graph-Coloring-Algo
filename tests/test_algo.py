@@ -106,6 +106,7 @@ class ContractionTest(unittest.TestCase):
         colors = 3
         K3_polynom = lambda t: t * (t - 1) * (t - 2)
         self.assertEqual(contraction(g, colors)[0], K3_polynom(colors))
+        self.assertEqual(contraction(g, colors)[1], 3)
 
     def test_Pn(self):
         for i in range(1, 12):

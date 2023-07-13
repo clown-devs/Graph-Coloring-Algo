@@ -53,6 +53,6 @@ def contraction(g: Graph, colors: int) -> tuple:
     return res, chromaticN
 
 def chromaticNumber(graphSize: int, coefs: list) -> int:
-    for m in range(graphSize):
+    for m in range(graphSize + 1):
         if chromaticPolynom(graphSize, m, coefs) > 0:
             return m
