@@ -46,8 +46,13 @@ def P(g: Graph, n: int) -> list:
             deleteG.removeEdge(v, adjecent)
             return delta(P(deleteG, n), P(conractG, n))
         
-def contraction(g: Graph, colors: int) -> int:
-    n = len(g.getVertices())
-    coefs = P(g, n + 1)
-    res = chromaticPolynom(n, colors, coefs)
-    return res
+def contraction(g: Graph, colors: int) -> tuple:
+    coefs = P(g, len(g) + 1)
+    res = chromaticPolynom(len(g), colors, coefs)
+    chromaticN = chromaticNumber(len(g), coefs) 
+    return res, chromaticN
+
+def chromaticNumber(graphSize: int, coefs: list) -> int:
+    for m in range(graphSize):
+        if chromaticPolynom(graphSize, m, coefs) > 0:
+            return m

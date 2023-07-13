@@ -105,7 +105,7 @@ class ContractionTest(unittest.TestCase):
         g.addEdge(3, 2)
         colors = 3
         K3_polynom = lambda t: t * (t - 1) * (t - 2)
-        self.assertEqual(contraction(g, colors), K3_polynom(colors))
+        self.assertEqual(contraction(g, colors)[0], K3_polynom(colors))
 
     def test_Pn(self):
         for i in range(1, 12):
@@ -118,7 +118,7 @@ class ContractionTest(unittest.TestCase):
             
             Pn_polynom = lambda t, n: t * (t - 1) ** (n - 1)
             for c in range(10):
-                self.assertEqual(contraction(g, colors=c), Pn_polynom(c, len(g)))
+                self.assertEqual(contraction(g, colors=c)[0], Pn_polynom(c, len(g)))
 
     def test_Cn(self):
         for i in range(1, 12):
@@ -132,7 +132,7 @@ class ContractionTest(unittest.TestCase):
             
             Cn_polynom = lambda t, n: (t - 1)**n + ( (-1)**n ) * (t - 1) 
             for c in range(10):
-                self.assertEqual(contraction(g, colors=c), Cn_polynom(c, len(g)))
+                self.assertEqual(contraction(g, colors=c)[0], Cn_polynom(c, len(g)))
 
     def test_Petersen_graph(self):
         g = Graph()
@@ -172,7 +172,7 @@ class ContractionTest(unittest.TestCase):
 
         Petersen_polynom = lambda t: t * (t - 1) * (t - 2) * (t**7 - 12 * t**6 + 67 * t**5 - 230 * t**4 + 529 * t**3 - 814 * t**2 + 775 * t - 352)
         for t in range(10):
-            self.assertEqual(contraction(g, colors=t), Petersen_polynom(t))
+            self.assertEqual(contraction(g, colors=t)[0], Petersen_polynom(t))
 
 
 del GenericColoringTest
