@@ -174,6 +174,7 @@ class ContractionTest(unittest.TestCase):
         Petersen_polynom = lambda t: t * (t - 1) * (t - 2) * (t**7 - 12 * t**6 + 67 * t**5 - 230 * t**4 + 529 * t**3 - 814 * t**2 + 775 * t - 352)
         for t in range(10):
             self.assertEqual(contraction(g, colors=t)[0], Petersen_polynom(t))
+            self.assertEqual(contraction(g, colors=t)[1], 3)
 
 
 del GenericColoringTest
