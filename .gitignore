@@ -2,3 +2,4 @@ venv
 lib
 *.html
 __pycache__
+*.json

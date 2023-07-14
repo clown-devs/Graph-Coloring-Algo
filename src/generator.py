@@ -5,7 +5,7 @@ def generate_graph(n):
     for i in range(1, n + 1):
         g.addVertex(Vertex(i))
     for i in range(1, n):
-        g.addEdge(g.getVertex(i).id, g.getVertex(i + 1).id)
+       g.addEdge(g.getVertex(i).id, g.getVertex(i + 1).id)
 
     for i in range(1, random.randint(1,n)):
         a = b = 1
