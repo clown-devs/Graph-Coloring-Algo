@@ -4,7 +4,7 @@ from src.drawer import *
 from src.generator import *
 from src.algo.greedy import *
 from src.algo.contraction import *
-
+from examples.statistic import *
 from src.algo.RLF import *
 from examples.RLF_examples import *
 
@@ -44,7 +44,11 @@ def main():
     d = Drawer(g)
     d.draw('graph.html')
 
-
+#def main():
+    #make_statistic(500)
+    #visualize_statistic('statistic.json')
+    # RLF_example_1()
+    # RLF_e
  
 if __name__ == "__main__":
     main()
